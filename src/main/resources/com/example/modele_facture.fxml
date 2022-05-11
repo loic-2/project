@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ModeleFactureController">
+   <children>
+      <Label alignment="CENTER" layoutX="288.0" layoutY="12.0" prefHeight="27.0" prefWidth="125.0" text="UPHARM" textFill="#30d15c">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#30d15c" glyphName="CLOSE" layoutX="676.0" layoutY="22.0" onMouseClicked="#fermerPopUp" size="25" />
+      <Label layoutX="14.0" layoutY="35.0" prefHeight="25.0" prefWidth="68.0" text="Facture N-" />
+      <Label fx:id="numFacture" layoutX="92.0" layoutY="40.0" text="56744" />
+      <JFXTextField fx:id="nomClient" focusColor="#2bd759" layoutX="15.0" layoutY="60.0" promptText="Nom du client" unFocusColor="#30d15c" />
+      <TableView fx:id="tableAchat" layoutX="25.0" layoutY="177.0" prefHeight="200.0" prefWidth="648.0">
+        <columns>
+          <TableColumn fx:id="colMedicament" prefWidth="279.0" text="Medicament" />
+          <TableColumn fx:id="colQte" prefWidth="79.0" text="Quantite" />
+            <TableColumn fx:id="colPrixUnitaire" prefWidth="121.0" text="Prix Unitaire" />
+            <TableColumn fx:id="colPrixtotal" prefWidth="168.0" text="Prix Total" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="381.0" layoutY="394.0" prefHeight="34.0" prefWidth="116.0" text="Montant Total">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="MtTotal" alignment="CENTER" layoutX="528.0" layoutY="394.0" prefHeight="34.0" prefWidth="95.0" text="15000 ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="633.0" layoutY="394.0" prefHeight="34.0" prefWidth="42.0" text="FCFA">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="470.0" layoutY="32.0" prefHeight="27.0" prefWidth="198.0" text="Situe au Cradat Ngoa-ekele" />
+      <Label alignment="CENTER" layoutX="470.0" layoutY="53.0" prefHeight="27.0" prefWidth="198.0" text="+237 655 084 085" />
+      <Label alignment="CENTER" layoutX="470.0" layoutY="78.0" prefHeight="27.0" prefWidth="198.0" text="+237 654 498 862" />
+      <Label alignment="CENTER" layoutX="230.0" layoutY="428.0" prefHeight="27.0" prefWidth="209.0" text="Bonne Guerison" />
+      <FontAwesomeIconView fill="WHITE" glyphName="SAVE" layoutX="435.0" layoutY="466.0" selectionStart="4" size="16" />
+      <JFXButton buttonType="RAISED" layoutX="548.0" layoutY="441.0" onMouseClicked="#imprimer" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #30D15C; -fx-background-radius: 25px;" text="Imprimer" textFill="WHITE">
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <FontAwesomeIconView fill="WHITE" glyphName="PRINT" layoutX="569.0" layoutY="466.0" onMouseClicked="#imprimer" selectionStart="4" size="16" />
+      <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="441.0" onMouseClicked="#enregistrer" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #4b4#30D15C2f5; -fx-background-radius: 25px;" text="Enregistrer" textFill="WHITE">
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <FontAwesomeIconView fill="WHITE" glyphName="SAVE" layoutX="434.0" layoutY="466.0" onMouseClicked="#enregistrer" selectionStart="4" size="16" />
+      <JFXComboBox fx:id="medicament" focusColor="#2bd759" layoutX="14.0" layoutY="98.0" prefHeight="24.0" prefWidth="155.0" promptText="Medicament" unFocusColor="#30d15c" />
+      <TextField fx:id="quantite" alignment="CENTER" layoutX="169.0" layoutY="97.0" prefHeight="27.0" prefWidth="57.0" promptText="Qte" style="-fx-border-color: #2bd759;" />
+      <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="129.0" onMouseClicked="#ajouterMedicament" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #30D15C; -fx-background-radius: 25px;" text="Ajouter" textFill="WHITE">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </JFXButton>
+      <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="25.0" layoutY="151.0" onMouseClicked="#ajouterMedicament" selectionStart="4" size="16" />
+      <JFXButton buttonType="RAISED" layoutX="116.0" layoutY="129.0" onMouseClicked="#retirerMedicament" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #30D15C; -fx-background-radius: 25px;" text="Supprimer" textFill="WHITE">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </JFXButton>
+      <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="128.0" layoutY="151.0" onMouseClicked="#retirerMedicament" selectionStart="4" size="16" />
+      <Label fx:id="dateEtablissement" alignment="CENTER" layoutX="482.0" layoutY="109.0" prefHeight="27.0" prefWidth="180.0" text="Label" />
+      <Pane fx:id="panerror" layoutX="14.0" layoutY="396.0" prefHeight="30.0" prefWidth="343.0">
+         <children>
+            <Label fx:id="errorLogin" alignment="CENTER" layoutX="10.0" layoutY="1.0" prefHeight="26.0" prefWidth="323.0" style="-fx-border-color: red; -fx-border-width: 0 0 0 5px; -fx-background-color: #e6f5e8;" text="Label" />
+            <FontAwesomeIconView fill="RED" glyphName="CLOSE" layoutX="313.0" layoutY="19.0" onMouseClicked="#remove" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

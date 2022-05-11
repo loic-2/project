@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="634.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoginController">
+   <children>
+      <Pane layoutX="-1.0" prefHeight="335.0" prefWidth="271.0" style="-fx-background-color: #30D15C;">
+         <children>
+            <Label layoutX="6.0" layoutY="127.0" prefHeight="46.0" prefWidth="259.0" text="BIENVENUE SUR UPHARM" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="6.0" layoutY="163.0" prefHeight="38.0" prefWidth="259.0" text="LA SANTE DU PATIENT" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" layoutX="6.0" layoutY="201.0" prefHeight="38.0" prefWidth="259.0" text="NOTRE PRIORITE" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="109.0" fitWidth="115.0" layoutX="81.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/pharmaciene.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <VBox layoutX="271.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="372.0">
+         <children>
+            <Pane prefHeight="73.0" prefWidth="372.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="81.0" layoutY="11.0" prefHeight="39.0" prefWidth="202.0" text="CONNEXION" textFill="#30d15c">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView fill="#30d15c" glyphName="CLOSE" layoutX="335.0" layoutY="22.0" onMouseClicked="#fermerApplication" size="25" />
+                  <Pane fx:id="panerror" layoutX="32.0" layoutY="42.0" prefHeight="30.0" prefWidth="300.0">
+                     <children>
+                        <Label fx:id="errorLogin" alignment="CENTER" layoutX="21.0" layoutY="3.0" prefHeight="26.0" prefWidth="259.0" style="-fx-border-color: red; -fx-border-width: 0 0 0 5px; -fx-background-color: #e6f5e8;" text="Label" />
+                        <FontAwesomeIconView fill="RED" glyphName="CLOSE" layoutX="260.0" layoutY="21.0" onMouseClicked="#remove" />
+                     </children>
+                  </Pane>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Pane>
+            <HBox prefHeight="69.0" prefWidth="304.0">
+               <children>
+                  <FontAwesomeIconView glyphName="USER" size="30" wrappingWidth="21.285714149475098" />
+                  <JFXTextField fx:id="login" focusColor="#2bd759" labelFloat="true" prefHeight="24.0" prefWidth="231.0" promptText="Votre Login" unFocusColor="#30d15c">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="30.0" top="15.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="69.0" prefWidth="304.0">
+               <children>
+                  <FontAwesomeIconView glyphName="LOCK" size="30" wrappingWidth="21.285714149475098" />
+                  <JFXPasswordField fx:id="motDePasse" focusColor="#2bd759" labelFloat="true" prefHeight="24.0" prefWidth="231.0" promptText="Votre mot de passe" unFocusColor="#30d15c">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </JFXPasswordField>
+               </children>
+               <padding>
+                  <Insets left="30.0" top="15.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="26.0" prefWidth="150.0" text="Mot de passe oublie?" underline="true">
+                     <HBox.margin>
+                        <Insets left="30.0" right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton fx:id="BtnConnexion" buttonType="RAISED" onAction="#seConnecter" prefHeight="38.0" prefWidth="152.0" style="-fx-background-color: #30D15C; -fx-background-radius: 25px;" text="Se connecter" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets right="2.0" top="30.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets left="15.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

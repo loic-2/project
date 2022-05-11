@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="succesDialog" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="374.0" style="-fx-background-radius: 30px; -fx-border-color: #30d15c; -fx-border-radius: 30px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SuccesController">
+   <children>
+      <Label fx:id="message" alignment="CENTER" layoutX="28.0" layoutY="95.0" prefHeight="26.0" prefWidth="318.0" text="Label" textFill="#30d15c">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <JFXButton layoutX="118.0" layoutY="144.0" onMouseClicked="#fermerPopUp" prefHeight="32.0" prefWidth="139.0" style="-fx-background-color: #30d15c; -fx-background-radius: 50px;" text="OK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <ImageView fitHeight="80.0" fitWidth="200.0" layoutX="148.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Success1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

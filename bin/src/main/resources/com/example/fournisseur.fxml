@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.FournisseurController">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="207.0" style="-fx-background-color: #30D15C;">
+         <children>
+            <Label layoutX="13.0" layoutY="112.0" onMouseClicked="#switchToDashboard" prefHeight="38.0" prefWidth="179.0" text="DASHBOARD" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="DASHBOARD" layoutX="29.0" layoutY="136.0" size="20" />
+            <Label layoutX="13.0" layoutY="150.0" onMouseClicked="#switchToMedicament" prefHeight="38.0" prefWidth="179.0" text="MEDICAMENTS" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" layoutX="30.0" layoutY="174.0" size="20" />
+            <Label layoutX="14.0" layoutY="188.0" onMouseClicked="#switchToPersonnel" prefHeight="38.0" prefWidth="179.0" text="PERSONNEL" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="30.0" layoutY="212.0" size="20" />
+            <Label layoutX="14.0" layoutY="226.0" onMouseClicked="#switchToFacture" prefHeight="38.0" prefWidth="179.0" text="FACTURE" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="FILE" layoutX="30.0" layoutY="252.0" size="20" />
+            <Label layoutX="14.0" layoutY="264.0" onMouseClicked="#switchToFournisseur" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: #ffffff; -fx-border-width: 0 0 0 5px; -fx-border-color: #06c913;" text="FOURNISSEURS" textFill="#1dd023">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+            <FontAwesomeIconView fill="#30d15c" glyphName="BUILDING" layoutX="30.0" layoutY="288.0" size="20" />
+            <Label layoutX="13.0" layoutY="340.0" onMouseClicked="#deconnexion" prefHeight="38.0" prefWidth="179.0" text="DECONNEXION" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="" layoutX="29.0" layoutY="364.0" size="20" text="" />
+            <ImageView fitHeight="80.0" fitWidth="131.0" layoutX="63.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/pharmacy_logo.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="13.0" layoutY="404.0" prefHeight="87.0" prefWidth="179.0">
+               <children>
+                  <ImageView fitHeight="72.0" fitWidth="65.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/pharmboy.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="username" layoutX="81.0" layoutY="31.0" prefHeight="25.0" prefWidth="96.0" text="Loic" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label layoutX="13.0" layoutY="302.0" onMouseClicked="#switchToHistorique" prefHeight="38.0" prefWidth="179.0" text="HISTORIQUE" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="" layoutX="29.0" layoutY="326.0" onMouseClicked="#switchToHistorique" size="20" text="" />
+         </children>
+      </Pane>
+      <Label alignment="CENTER" layoutX="556.0" layoutY="14.0" prefHeight="27.0" prefWidth="125.0" text="UPHARM" textFill="#30d15c">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="TableFournisseur" editable="true" layoutX="221.0" layoutY="138.0" prefHeight="351.0" prefWidth="827.0">
+         <columns>
+            <TableColumn fx:id="colLaboratoire" prefWidth="300.0" text="Laboratoire" />
+            <TableColumn fx:id="colTelephone" prefWidth="257.0" text="Telephone" />
+            <TableColumn fx:id="colAdresse" minWidth="2.0" prefWidth="269.0" text="Adresse" />
+         </columns>
+      </TableView>
+      <JFXTextField fx:id="rechercher" focusColor="#2bd759" layoutX="525.0" layoutY="48.0" prefHeight="24.0" prefWidth="187.0" promptText="Rechercher" unFocusColor="#30d15c" />
+      <FontAwesomeIconView fill="#30d15c" glyphName="SEARCH" layoutX="696.0" layoutY="65.0" size="14" wrappingWidth="12.071428298950195" />
+      <FontAwesomeIconView fill="#30d15c" glyphName="CLOSE" layoutX="1042.0" layoutY="22.0" onMouseClicked="#fermerApplication" size="25" />
+      <JFXButton buttonType="RAISED" layoutX="221.0" layoutY="85.0" onMouseClicked="#addFournisseur" prefHeight="38.0" prefWidth="152.0" style="-fx-background-color: #30D15C; -fx-background-radius: 25px;" text="Ajouter" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="396.0" layoutY="85.0" onMouseClicked="#supprimer" prefHeight="38.0" prefWidth="152.0" style="-fx-background-color: #30D15C#30D15C; -fx-background-radius: 25px;" text="Supprimer" textFill="WHITE" />
+      <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="250.0" layoutY="109.0" onMouseClicked="#addFournisseur" selectionStart="4" size="16" />
+      <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="416.0" layoutY="109.0" onMouseClicked="#supprimer" selectionStart="4" size="16" />
+   </children>
+</AnchorPane>

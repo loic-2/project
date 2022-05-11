@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="427.0" style="-fx-background-radius: 30px; -fx-border-color: #30d15c; -fx-border-radius: 30px;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.AjoutFournisseurController">
+   <children>
+      <Label alignment="CENTER" layoutX="155.0" layoutY="14.0" prefHeight="27.0" prefWidth="125.0" text="UPHARM" textFill="#30d15c">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#30d15c" glyphName="CLOSE" layoutX="393.0" layoutY="24.0" onMouseClicked="#fermerPopUp" size="25" />
+      <JFXButton fx:id="btnEnregistrer" buttonType="RAISED" layoutX="219.0" layoutY="358.0" onAction="#enregistrer" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #4b4#30D15C2f5; -fx-background-radius: 25px;" text="Enregistrer" textFill="WHITE">
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <FontAwesomeIconView fill="WHITE" glyphName="SAVE" layoutX="240.0" layoutY="383.0" selectionStart="4" size="16" />
+      <JFXButton fx:id="btnAnnuler" buttonType="RAISED" layoutX="84.0" layoutY="358.0" onAction="#annuler" prefHeight="38.0" prefWidth="125.0" style="-fx-background-color: #ff362c; -fx-background-radius: 25px;" text="Annuler" textFill="WHITE">
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="105.0" layoutY="383.0" selectionStart="4" size="16" />
+      <Label alignment="CENTER" layoutX="110.0" layoutY="55.0" prefHeight="27.0" prefWidth="214.0" text="Ajout de fournisseur">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="adresseFournisseur" alignment="BOTTOM_LEFT" focusColor="#2bd759" labelFloat="true" layoutX="110.0" layoutY="260.0" prefHeight="38.0" prefWidth="231.0" promptText="Entrer l'adresse" unFocusColor="#30d15c">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <FontAwesomeIconView fill="#8d8989" glyphName="ADDRESS_CARD" layoutX="80.0" layoutY="294.0" size="25" />
+      <JFXTextField fx:id="numeroFournisseur" alignment="BOTTOM_LEFT" focusColor="#2bd759" labelFloat="true" layoutX="110.0" layoutY="194.0" prefHeight="38.0" prefWidth="231.0" promptText="Entrer le numero " unFocusColor="#30d15c">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <FontAwesomeIconView fill="#8d8989" glyphName="PHONE" layoutX="85.0" layoutY="229.0" size="25" />
+      <JFXTextField fx:id="nomFournisseur" alignment="BOTTOM_LEFT" focusColor="#2bd759" labelFloat="true" layoutX="110.0" layoutY="130.0" prefHeight="38.0" prefWidth="231.0" promptText="Entrer le nom " unFocusColor="#30d15c">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <FontAwesomeIconView fill="#8d8989" glyphName="BUILDING" layoutX="85.0" layoutY="164.0" size="25" />
+      <Pane fx:id="panerror" layoutX="46.0" layoutY="91.0" prefHeight="30.0" prefWidth="343.0">
+         <children>
+            <Label fx:id="errorLogin" alignment="CENTER" layoutX="10.0" layoutY="1.0" prefHeight="26.0" prefWidth="323.0" style="-fx-border-color: red; -fx-border-width: 0 0 0 5px; -fx-background-color: #e6f5e8;" text="Label" />
+            <FontAwesomeIconView fill="RED" glyphName="CLOSE" layoutX="313.0" layoutY="19.0" onMouseClicked="#remove" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
