@@ -10,6 +10,7 @@ import com.example.App;
 
 import org.controlsfx.control.Notifications;
 
+import javafx.application.Platform;
 import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
@@ -37,9 +38,22 @@ public class Controle extends ScheduledService{
             //Period period1= Period.between(date, date2);
             if (date.isAfter(date1) || date1.isEqual(date) ) {
                 System.out.println(date1);
-                
+                Platform.runLater(()->{
+                    Notifications notifications= Notifications.create();
+                                                 notifications.darkStyle()
+                                                              .hideAfter(Duration.seconds(15))
+                                                              .text("Medicament")
+                                                              .show();
+                });
             } else if (period.getDays()<=20 && period.getYears()==0 && period.getMonths()==0 && date1.isAfter(date)) {
                 System.out.println(date1);
+                Platform.runLater(()->{
+                    Notifications notifications= Notifications.create();
+                                                 notifications.darkStyle()
+                                                              .hideAfter(Duration.seconds(15))
+                                                              .text("Medicament")
+                                                              .show();
+                });
                 
             }else {
                 

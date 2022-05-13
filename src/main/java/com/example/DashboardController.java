@@ -10,9 +10,11 @@ import java.util.ResourceBundle;
 
 import com.example.modele.Controle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.ScheduledService;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
@@ -54,6 +56,8 @@ public class DashboardController extends NavigationController implements Initial
     @FXML
     private Label numPersonnel;
 
+    final XYChart.Series<String,Integer> series= new XYChart.Series<>();
+
     /**
      * Affiche les donnees du graphe
      * @throws SQLException
@@ -61,7 +65,6 @@ public class DashboardController extends NavigationController implements Initial
     private void dasboard() throws SQLException
     {
 
-        final XYChart.Series<String,Integer> series= new XYChart.Series<>();
         series.setName("Quantite");
         ResultSet rs = App.getConnection().createStatement().executeQuery("SELECT * FROM Medicament");
         while (rs.next()) {
@@ -106,28 +109,30 @@ public class DashboardController extends NavigationController implements Initial
     public void afficherParametres() throws Exception
     {
 
-        try {
-            ResultSet rs = App.getConnection().createStatement().executeQuery("SELECT count(*) FROM Medicament");
-            ResultSet rs2 = App.getConnection().createStatement().executeQuery("SELECT count(*) FROM Fabricant");
-            ResultSet rs3 = App.getConnection().createStatement().executeQuery("SELECT count(*) FROM Personnel");
-            ResultSet rs4 = App.getConnection().createStatement().executeQuery("SELECT count(*) FROM Facture");
-
-            rs.next();
-            rs2.next();
-            rs3.next();
-            rs4.next();
-
-            numFacture.setText(Integer.toString(rs4.getInt(1)));
-            numFournisseur.setText(Integer.toString(rs2.getInt(1)));
-            numMedicament.setText(Integer.toString(rs.getInt(1)));
-            numPersonnel.setText(Integer.toString(rs3.getInt(1)));
-            totalMedicament=rs2.getInt(1);
-            dasboard();
-
-        } catch (SQLException e) {
-            
-            e.printStackTrace();
-        }
+        Platform.runLater(()->{
+            try {
+                ResultSet rs = App.getConnection().createStatement().executeQuery("SELECT count(*) FROM Medicament");
+                ResultSet rs2 = App.getConnection().createStatement().executeQuery("SELECT count(*) FROM Fabricant");
+                ResultSet rs3 = App.getConnection().createStatement().executeQuery("SELECT count(*) FROM Personnel");
+                ResultSet rs4 = App.getConnection().createStatement().executeQuery("SELECT count(*) FROM Facture");
+    
+                rs.next();
+                rs2.next();
+                rs3.next();
+                rs4.next();
+    
+                numFacture.setText(Integer.toString(rs4.getInt(1)));
+                numFournisseur.setText(Integer.toString(rs2.getInt(1)));
+                numMedicament.setText(Integer.toString(rs.getInt(1)));
+                numPersonnel.setText(Integer.toString(rs3.getInt(1)));
+                totalMedicament=rs2.getInt(1);
+                dasboard();
+    
+            } catch (SQLException e) {
+                
+                e.printStackTrace();
+            }
+        });
 
     }
 
@@ -138,17 +143,32 @@ public class DashboardController extends NavigationController implements Initial
     public void initialize(URL location, ResourceBundle resources) {
 
         ScheduledService<Void> scheduledService= new Controle();
+        ScheduledService<Void> scheduledService2= new ScheduledService<Void>() {
+
+            @Override
+            protected Task<Void> createTask() {
+                
+                return new Task<Void>() {
+
+                    @Override
+                    protected Void call() throws Exception {
+                        afficherParametres();
+                        return null;
+                    }
+                    
+                };
+            }
+
+            
+        };
         scheduledService.setDelay(Duration.seconds(5));
         scheduledService.setPeriod(Duration.seconds(120));
+        scheduledService2.setDelay(Duration.seconds(0));
+        scheduledService2.setPeriod(Duration.seconds(10));
+        scheduledService2.start();
         scheduledService.start();
         username.setText(LoginController.loginUser);
         zoomValue.setVisible(false);
-        try {
-            afficherParametres();
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
 
 
         /*for (final PieChart.Data data : piechart.getData()) {
