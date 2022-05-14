@@ -56,8 +56,6 @@ public class DashboardController extends NavigationController implements Initial
     @FXML
     private Label numPersonnel;
 
-    final XYChart.Series<String,Integer> series= new XYChart.Series<>();
-
     /**
      * Affiche les donnees du graphe
      * @throws SQLException
@@ -65,6 +63,7 @@ public class DashboardController extends NavigationController implements Initial
     private void dasboard() throws SQLException
     {
 
+        final XYChart.Series<String,Integer> series= new XYChart.Series<>();
         series.setName("Quantite");
         ResultSet rs = App.getConnection().createStatement().executeQuery("SELECT * FROM Medicament");
         while (rs.next()) {
@@ -126,7 +125,7 @@ public class DashboardController extends NavigationController implements Initial
                 numMedicament.setText(Integer.toString(rs.getInt(1)));
                 numPersonnel.setText(Integer.toString(rs3.getInt(1)));
                 totalMedicament=rs2.getInt(1);
-                dasboard();
+                
     
             } catch (SQLException e) {
                 
@@ -161,6 +160,11 @@ public class DashboardController extends NavigationController implements Initial
 
             
         };
+        try {
+            dasboard();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         scheduledService.setDelay(Duration.seconds(5));
         scheduledService.setPeriod(Duration.seconds(120));
         scheduledService2.setDelay(Duration.seconds(0));

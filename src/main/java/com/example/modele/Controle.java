@@ -40,19 +40,33 @@ public class Controle extends ScheduledService{
                 System.out.println(date1);
                 Platform.runLater(()->{
                     Notifications notifications= Notifications.create();
-                                                 notifications.darkStyle()
-                                                              .hideAfter(Duration.seconds(15))
-                                                              .text("Medicament")
-                                                              .show();
+                                                 try {
+													notifications.darkStyle()
+													              .hideAfter(Duration.seconds(15))
+                                                                  .title("Medicament")
+													              .text("Le "+rs.getString("Nom_Medicament")+
+													              "a expire le "+rs.getString("dateExpiration_Medicament"))
+													              .showError();
+												} catch (SQLException e) {
+													// TODO Auto-generated catch block
+													e.printStackTrace();
+												}
                 });
             } else if (period.getDays()<=20 && period.getYears()==0 && period.getMonths()==0 && date1.isAfter(date)) {
                 System.out.println(date1);
                 Platform.runLater(()->{
                     Notifications notifications= Notifications.create();
-                                                 notifications.darkStyle()
-                                                              .hideAfter(Duration.seconds(15))
-                                                              .text("Medicament")
-                                                              .show();
+                                                 try {
+													notifications.darkStyle()
+													              .hideAfter(Duration.seconds(15))
+													              .title("Le medicament")
+													              .text("Le "+rs.getString("Nom_Medicament")+
+														          "arrive a expiration le "+rs.getString("dateExpiration_Medicament"))
+													              .showWarning();
+												} catch (SQLException e) {
+													// TODO Auto-generated catch block
+													e.printStackTrace();
+												}
                 });
                 
             }else {
